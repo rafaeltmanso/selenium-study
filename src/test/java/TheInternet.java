@@ -34,6 +34,14 @@ public class TheInternet {
     private static final By CONTEXT_MENU_TITLE = By.xpath("//h1[normalize-space()='Context Menu']");
     private static final By CONTEXT_MENU_BOX = By.cssSelector("main .cursor-context-menu");
     private static final By CONTEXT_MENU_STATUS = By.xpath("//p[contains(normalize-space(), 'Context menu triggered:')]");
+    private static final By DYNAMIC_LOADING_TITLE = By.xpath("//h1[normalize-space()='Dynamic Loading']");
+    private static final By DYNAMIC_LOADING_START_BUTTON = By.cssSelector("button.px-6.py-3.bg-primary");
+    private static final By DYNAMIC_LOADING_LOADED_CONTENT = By.xpath("//p[contains(text(), 'Hello World')]");
+    private static final By DYNAMIC_CONTROLS_TITLE = By.xpath("//h1[normalize-space()='Dynamic Controls']");
+    private static final By DYNAMIC_CONTROLS_TOGGLE_BUTTON = By.cssSelector("button.px-6.py-3.bg-primary");
+    private static final By DYNAMIC_CONTROLS_TEXT_INPUT = By.id("text-input");
+    private static final By DYNAMIC_CONTROLS_CHECKBOX = By.id("checkbox");
+    private static final By DYNAMIC_CONTROLS_STATUS = By.cssSelector("div.p-4.rounded-lg.bg-muted\\/50 p");
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -217,6 +225,118 @@ public class TheInternet {
                 "Status should change after right-click action");
     }
 
+    @Test
+    public void testDynamicLoadingContentAppearsAfterDelay() {
+        goToDynamicLoadingPage();
+
+        WebElement startButton = wait.until(ExpectedConditions.elementToBeClickable(DYNAMIC_LOADING_START_BUTTON));
+        startButton.click();
+
+        WebElement loadedContent = wait.until(ExpectedConditions.visibilityOfElementLocated(DYNAMIC_LOADING_LOADED_CONTENT));
+
+        Assertions.assertTrue(loadedContent.isDisplayed(), "Content should be visible after 5 seconds");
+        Assertions.assertFalse(loadedContent.getText().isEmpty(), "Content should not be empty");
+    }
+
+    @Test
+    public void testDynamicControlsStartDisabled() {
+        goToDynamicControlsPage();
+
+        WebElement toggleButton = wait.until(ExpectedConditions.visibilityOfElementLocated(DYNAMIC_CONTROLS_TOGGLE_BUTTON));
+        WebElement textInput = driver.findElement(DYNAMIC_CONTROLS_TEXT_INPUT);
+        WebElement checkbox = driver.findElement(DYNAMIC_CONTROLS_CHECKBOX);
+
+        Assertions.assertEquals("Enable Controls", toggleButton.getText().trim(),
+                "Toggle button should say 'Enable Controls' when controls are disabled");
+        Assertions.assertFalse(textInput.isEnabled(), "Text input should be disabled initially");
+        Assertions.assertFalse(checkbox.isEnabled(), "Checkbox should be disabled initially");
+
+        String statusText = driver.findElement(DYNAMIC_CONTROLS_STATUS).getText();
+        Assertions.assertTrue(statusText.contains("Controls Disabled"),
+                "Status should indicate controls are disabled");
+    }
+
+    @Test
+    public void testDynamicControlsCanBeEnabled() {
+        goToDynamicControlsPage();
+
+        WebElement toggleButton = wait.until(ExpectedConditions.elementToBeClickable(DYNAMIC_CONTROLS_TOGGLE_BUTTON));
+        toggleButton.click();
+
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(DYNAMIC_CONTROLS_TOGGLE_BUTTON, "Disable Controls"));
+
+        WebElement textInput = driver.findElement(DYNAMIC_CONTROLS_TEXT_INPUT);
+        WebElement checkbox = driver.findElement(DYNAMIC_CONTROLS_CHECKBOX);
+
+        Assertions.assertTrue(textInput.isEnabled(), "Text input should be enabled after clicking Enable");
+        Assertions.assertTrue(checkbox.isEnabled(), "Checkbox should be enabled after clicking Enable");
+
+        String statusText = wait.until(ExpectedConditions.visibilityOfElementLocated(DYNAMIC_CONTROLS_STATUS)).getText();
+        Assertions.assertTrue(statusText.contains("Controls Enabled"),
+                "Status should indicate controls are enabled");
+    }
+
+    @Test
+    public void testDynamicControlsCanBeDisabled() {
+        goToDynamicControlsPage();
+
+        WebElement toggleButton = wait.until(ExpectedConditions.elementToBeClickable(DYNAMIC_CONTROLS_TOGGLE_BUTTON));
+        toggleButton.click();
+
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(DYNAMIC_CONTROLS_TOGGLE_BUTTON, "Disable Controls"));
+
+        toggleButton = driver.findElement(DYNAMIC_CONTROLS_TOGGLE_BUTTON);
+        toggleButton.click();
+
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(DYNAMIC_CONTROLS_TOGGLE_BUTTON, "Enable Controls"));
+
+        WebElement textInput = driver.findElement(DYNAMIC_CONTROLS_TEXT_INPUT);
+        WebElement checkbox = driver.findElement(DYNAMIC_CONTROLS_CHECKBOX);
+
+        Assertions.assertFalse(textInput.isEnabled(), "Text input should be disabled after clicking Disable");
+        Assertions.assertFalse(checkbox.isEnabled(), "Checkbox should be disabled after clicking Disable");
+
+        String statusText = wait.until(ExpectedConditions.visibilityOfElementLocated(DYNAMIC_CONTROLS_STATUS)).getText();
+        Assertions.assertTrue(statusText.contains("Controls Disabled"),
+                "Status should indicate controls are disabled");
+    }
+
+    @Test
+    public void testDynamicControlsCanTypeInEnabledInput() {
+        goToDynamicControlsPage();
+
+        WebElement toggleButton = wait.until(ExpectedConditions.elementToBeClickable(DYNAMIC_CONTROLS_TOGGLE_BUTTON));
+        toggleButton.click();
+
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(DYNAMIC_CONTROLS_TOGGLE_BUTTON, "Disable Controls"));
+        WebElement textInput = wait.until(ExpectedConditions.elementToBeClickable(DYNAMIC_CONTROLS_TEXT_INPUT));
+
+        textInput.clear();
+        textInput.sendKeys("Hello World");
+
+        Assertions.assertEquals("Hello World", textInput.getAttribute("value"),
+                "Should be able to type in the text input when enabled");
+    }
+
+    @Test
+    public void testDynamicControlsCheckboxCanBeToggled() {
+        goToDynamicControlsPage();
+
+        WebElement toggleButton = wait.until(ExpectedConditions.elementToBeClickable(DYNAMIC_CONTROLS_TOGGLE_BUTTON));
+        toggleButton.click();
+
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(DYNAMIC_CONTROLS_TOGGLE_BUTTON, "Disable Controls"));
+
+        WebElement checkbox = driver.findElement(DYNAMIC_CONTROLS_CHECKBOX);
+        Assertions.assertFalse(checkbox.isSelected(), "Checkbox should be unchecked initially when enabled");
+
+        checkbox.click();
+        Assertions.assertTrue(checkbox.isSelected(), "Checkbox should be checked after clicking");
+
+        checkbox.click();
+        Assertions.assertFalse(checkbox.isSelected(), "Checkbox should be unchecked after clicking again");
+    }
+
     private void goToCheckboxesPage() {
         driver.get(BASE_URL + "/examples/checkboxes");
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(CHECKBOX_INPUTS, 1));
@@ -237,6 +357,16 @@ public class TheInternet {
         driver.get(BASE_URL + "/examples/context-menu");
         wait.until(ExpectedConditions.visibilityOfElementLocated(CONTEXT_MENU_TITLE));
         wait.until(ExpectedConditions.visibilityOfElementLocated(CONTEXT_MENU_BOX));
+    }
+
+    private void goToDynamicLoadingPage() {
+        driver.get(BASE_URL + "/examples/dynamic-loading");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(DYNAMIC_LOADING_TITLE));
+    }
+
+    private void goToDynamicControlsPage() {
+        driver.get(BASE_URL + "/examples/dynamic-controls");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(DYNAMIC_CONTROLS_TITLE));
     }
 
     private void html5DragAndDrop(WebElement source, WebElement target) {
