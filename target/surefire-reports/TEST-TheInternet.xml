@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="TheInternet" time="79.974" tests="32" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="TheInternet" time="116.657" tests="44" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,9 +16,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-25\bin"/>
-    <property name="sun.java.command" value="C:\Users\rafaelmanso\AppData\Local\Temp\surefire1156897341358825408\surefirebooter-20260429125243583_3.jar C:\Users\rafaelmanso\AppData\Local\Temp\surefire1156897341358825408 2026-04-29T12-52-43_507-jvmRun1 surefire-20260429125243583_1tmp surefire_0-20260429125243583_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\rafaelmanso\AppData\Local\Temp\surefire1785281076973504311\surefirebooter-20260429141739175_3.jar C:\Users\rafaelmanso\AppData\Local\Temp\surefire1785281076973504311 2026-04-29T14-17-39_104-jvmRun1 surefire-20260429141739175_1tmp surefire_0-20260429141739175_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="FirstTest,TheInternet"/>
+    <property name="test" value="TheInternet"/>
     <property name="surefire.test.class.path" value="E:\Rafael\Profissional\Quality Assurance\Development\Studies\selenium-study\target\test-classes;E:\Rafael\Profissional\Quality Assurance\Development\Studies\selenium-study\target\classes;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-java\4.27.0\selenium-java-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-api\4.27.0\selenium-api-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.27.0\selenium-chrome-driver-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.27.0\selenium-chromium-driver-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-json\4.27.0\selenium-json-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.27.0\selenium-manager-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v129\4.27.0\selenium-devtools-v129-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v130\4.27.0\selenium-devtools-v130-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v131\4.27.0\selenium-devtools-v131-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.27.0\selenium-devtools-v85-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.27.0\selenium-edge-driver-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.27.0\selenium-firefox-driver-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-http\4.27.0\selenium-http-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.27.0\selenium-ie-driver-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.27.0\selenium-remote-driver-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\com\google\guava\guava\33.3.1-jre\guava-33.3.1-jre.jar;C:\Users\rafaelmanso\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\rafaelmanso\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\rafaelmanso\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\rafaelmanso\.m2\repository\org\checkerframework\checker-qual\3.43.0\checker-qual-3.43.0.jar;C:\Users\rafaelmanso\.m2\repository\com\google\errorprone\error_prone_annotations\2.28.0\error_prone_annotations-2.28.0.jar;C:\Users\rafaelmanso\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-api\1.44.1\opentelemetry-api-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-context\1.44.1\opentelemetry-context-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.44.1\opentelemetry-exporter-logging-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.44.1\opentelemetry-sdk-common-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.44.1\opentelemetry-sdk-extension-autoconfigure-spi-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.44.1\opentelemetry-sdk-extension-autoconfigure-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.44.1-alpha\opentelemetry-api-incubator-1.44.1-alpha.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.44.1\opentelemetry-sdk-trace-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.44.1\opentelemetry-sdk-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.44.1\opentelemetry-sdk-metrics-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.44.1\opentelemetry-sdk-logs-1.44.1.jar;C:\Users\rafaelmanso\.m2\repository\net\bytebuddy\byte-buddy\1.15.10\byte-buddy-1.15.10.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-os\4.27.0\selenium-os-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.27.0\selenium-safari-driver-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\seleniumhq\selenium\selenium-support\4.27.0\selenium-support-4.27.0.jar;C:\Users\rafaelmanso\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\rafaelmanso\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\rafaelmanso\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\rafaelmanso\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\rafaelmanso\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\rafaelmanso\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\rafaelmanso\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\rafaelmanso\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\rafaelmanso"/>
@@ -32,7 +32,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\rafaelmanso\AppData\Local\Temp\surefire1156897341358825408\surefirebooter-20260429125243583_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\rafaelmanso\AppData\Local\Temp\surefire1785281076973504311\surefirebooter-20260429141739175_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.1+8-LTS-27"/>
@@ -62,227 +62,311 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testFloatingMenuNavigationClickingEachLink" classname="TheInternet" time="3.495">
-    <system-err><![CDATA[abr. 29, 2026 12:53:04 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testFloatingMenuNavigationClickingEachLink" classname="TheInternet" time="1.748">
+    <system-err><![CDATA[abr. 29, 2026 2:17:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:04 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:17:40 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testContextMenuCanBeTriggered" classname="TheInternet" time="3.308">
-    <system-err><![CDATA[abr. 29, 2026 12:53:08 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testContextMenuCanBeTriggered" classname="TheInternet" time="1.489">
+    <system-err><![CDATA[abr. 29, 2026 2:17:41 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:08 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:17:41 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testSortableTablesDefaultOrder" classname="TheInternet" time="3.16">
-    <system-err><![CDATA[abr. 29, 2026 12:53:11 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testSortableTablesDefaultOrder" classname="TheInternet" time="3.306">
+    <system-err><![CDATA[abr. 29, 2026 2:17:43 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:11 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:17:43 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDragAndDropPageLoads" classname="TheInternet" time="3.107">
-    <system-err><![CDATA[abr. 29, 2026 12:53:14 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testDragAndDropPageLoads" classname="TheInternet" time="3.366">
+    <system-err><![CDATA[abr. 29, 2026 2:17:46 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:14 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:17:46 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testSortableTablesColumnHeaders" classname="TheInternet" time="1.266">
-    <system-err><![CDATA[abr. 29, 2026 12:53:17 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testSortableTablesColumnHeaders" classname="TheInternet" time="3.412">
+    <system-err><![CDATA[abr. 29, 2026 2:17:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:17 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:17:50 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testJQueryUIMenuHoverRevealsSubMenu" classname="TheInternet" time="2.191">
-    <system-err><![CDATA[abr. 29, 2026 12:53:18 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testJQueryUIMenuHoverRevealsSubMenu" classname="TheInternet" time="3.427">
+    <system-err><![CDATA[abr. 29, 2026 2:17:53 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:18 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:17:53 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testJQueryUIMenusPageLoads" classname="TheInternet" time="3.09">
-    <system-err><![CDATA[abr. 29, 2026 12:53:21 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testJQueryUIMenusPageLoads" classname="TheInternet" time="2.147">
+    <system-err><![CDATA[abr. 29, 2026 2:17:56 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:21 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:17:56 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDragAndDropSwapsColumns" classname="TheInternet" time="3.624">
-    <system-err><![CDATA[abr. 29, 2026 12:53:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testDragAndDropSwapsColumns" classname="TheInternet" time="3.908">
+    <system-err><![CDATA[abr. 29, 2026 2:17:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:24 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:17:59 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDynamicLoadingContentAppearsAfterDelay" classname="TheInternet" time="8.389">
-    <system-err><![CDATA[abr. 29, 2026 12:53:27 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testDynamicLoadingContentAppearsAfterDelay" classname="TheInternet" time="6.589">
+    <system-err><![CDATA[abr. 29, 2026 2:18:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:27 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDynamicControlsCanBeEnabled" classname="TheInternet" time="3.32">
-    <system-err><![CDATA[abr. 29, 2026 12:53:36 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testJsAlertsPageLoads" classname="TheInternet" time="2.224">
+    <system-err><![CDATA[abr. 29, 2026 2:18:09 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:36 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:09 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDropdownDefaultSelection" classname="TheInternet" time="1.167">
-    <system-err><![CDATA[abr. 29, 2026 12:53:39 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testDynamicControlsCanBeEnabled" classname="TheInternet" time="3.365">
+    <system-err><![CDATA[abr. 29, 2026 2:18:11 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:39 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:11 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDynamicControlsCanBeDisabled" classname="TheInternet" time="4.064">
-    <system-err><![CDATA[abr. 29, 2026 12:53:40 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testEntryAdModalAppearsAndCanBeClosed" classname="TheInternet" time="4.583">
+    <system-err><![CDATA[abr. 29, 2026 2:18:15 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:40 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:15 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testFramesCanSwitchToIframeAndBack" classname="TheInternet" time="1.213">
-    <system-err><![CDATA[abr. 29, 2026 12:53:44 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testDropdownDefaultSelection" classname="TheInternet" time="1.157">
+    <system-err><![CDATA[abr. 29, 2026 2:18:19 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:44 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:19 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testExitIntentModalCanBeDismissed" classname="TheInternet" time="3.307">
-    <system-err><![CDATA[abr. 29, 2026 12:53:45 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testDynamicControlsCanBeDisabled" classname="TheInternet" time="3.411">
+    <system-err><![CDATA[abr. 29, 2026 2:18:20 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:45 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:20 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testFloatingMenuStaysVisibleAfterScrolling" classname="TheInternet" time="1.183">
-    <system-err><![CDATA[abr. 29, 2026 12:53:49 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testMultipleWindowsCanOpenNewWindow" classname="TheInternet" time="1.223">
+    <system-err><![CDATA[abr. 29, 2026 2:18:24 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:49 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:24 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testContextMenuPageLoads" classname="TheInternet" time="1.24">
-    <system-err><![CDATA[abr. 29, 2026 12:53:50 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testFramesCanSwitchToIframeAndBack" classname="TheInternet" time="3.49">
+    <system-err><![CDATA[abr. 29, 2026 2:18:25 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:50 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:25 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testCheckboxesCanBeToggled" classname="TheInternet" time="1.222">
-    <system-err><![CDATA[abr. 29, 2026 12:53:51 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testFileDownloadPageLoads" classname="TheInternet" time="3.322">
+    <system-err><![CDATA[abr. 29, 2026 2:18:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:51 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:29 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testFloatingMenuPageLoads" classname="TheInternet" time="1.194">
-    <system-err><![CDATA[abr. 29, 2026 12:53:52 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testExitIntentModalCanBeDismissed" classname="TheInternet" time="3.423">
+    <system-err><![CDATA[abr. 29, 2026 2:18:32 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:52 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:32 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDynamicControlsCanTypeInEnabledInput" classname="TheInternet" time="1.384">
-    <system-err><![CDATA[abr. 29, 2026 12:53:54 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testFloatingMenuStaysVisibleAfterScrolling" classname="TheInternet" time="2.193">
+    <system-err><![CDATA[abr. 29, 2026 2:18:35 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:54 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:35 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testHoversPageLoads" classname="TheInternet" time="3.088">
-    <system-err><![CDATA[abr. 29, 2026 12:53:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testContextMenuPageLoads" classname="TheInternet" time="3.338">
+    <system-err><![CDATA[abr. 29, 2026 2:18:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:55 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:37 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testSortableTablesCanSortByColumn" classname="TheInternet" time="3.333">
-    <system-err><![CDATA[abr. 29, 2026 12:53:58 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testCheckboxesCanBeToggled" classname="TheInternet" time="1.546">
+    <system-err><![CDATA[abr. 29, 2026 2:18:41 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:53:58 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:41 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testFramesPageLoads" classname="TheInternet" time="1.278">
-    <system-err><![CDATA[abr. 29, 2026 12:54:01 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testJsAlertsPromptDialog" classname="TheInternet" time="1.191">
+    <system-err><![CDATA[abr. 29, 2026 2:18:42 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:01 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:42 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDropdownCanSelectOptions" classname="TheInternet" time="1.512">
-    <system-err><![CDATA[abr. 29, 2026 12:54:03 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testJsAlertsConfirmDialog" classname="TheInternet" time="3.179">
+    <system-err><![CDATA[abr. 29, 2026 2:18:43 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:03 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:43 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testSortableTablesPageLoads" classname="TheInternet" time="2.276">
-    <system-err><![CDATA[abr. 29, 2026 12:54:04 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testFloatingMenuPageLoads" classname="TheInternet" time="2.333">
+    <system-err><![CDATA[abr. 29, 2026 2:18:47 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:04 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:47 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testCheckboxesInitialState" classname="TheInternet" time="2.26">
-    <system-err><![CDATA[abr. 29, 2026 12:54:06 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testMultipleWindowsPageLoads" classname="TheInternet" time="2.259">
+    <system-err><![CDATA[abr. 29, 2026 2:18:49 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:06 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:49 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDynamicControlsStartDisabled" classname="TheInternet" time="3.315">
-    <system-err><![CDATA[abr. 29, 2026 12:54:09 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testDynamicControlsCanTypeInEnabledInput" classname="TheInternet" time="3.611">
+    <system-err><![CDATA[abr. 29, 2026 2:18:51 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:09 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:51 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testExitIntentPageLoads" classname="TheInternet" time="1.137">
-    <system-err><![CDATA[abr. 29, 2026 12:54:12 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testHoversPageLoads" classname="TheInternet" time="2.336">
+    <system-err><![CDATA[abr. 29, 2026 2:18:55 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:12 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:55 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testHoversRevealsUserInfoOnHover" classname="TheInternet" time="1.251">
-    <system-err><![CDATA[abr. 29, 2026 12:54:13 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testSortableTablesCanSortByColumn" classname="TheInternet" time="1.266">
+    <system-err><![CDATA[abr. 29, 2026 2:18:57 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:13 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:57 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testAddAndRemoveElements" classname="TheInternet" time="3.728">
-    <system-err><![CDATA[abr. 29, 2026 12:54:14 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testFramesPageLoads" classname="TheInternet" time="1.38">
+    <system-err><![CDATA[abr. 29, 2026 2:18:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:14 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:18:59 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testExitIntentModalAppearsOnMouseExit" classname="TheInternet" time="2.233">
-    <system-err><![CDATA[abr. 29, 2026 12:54:18 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testDropdownCanSelectOptions" classname="TheInternet" time="2.394">
+    <system-err><![CDATA[abr. 29, 2026 2:19:00 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:18 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:19:00 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testDynamicControlsCheckboxCanBeToggled" classname="TheInternet" time="1.246">
-    <system-err><![CDATA[abr. 29, 2026 12:54:20 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testSortableTablesPageLoads" classname="TheInternet" time="1.284">
+    <system-err><![CDATA[abr. 29, 2026 2:19:02 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:20 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:19:02 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
-  <testcase name="testFormAuthentication" classname="TheInternet" time="2.385">
-    <system-err><![CDATA[abr. 29, 2026 12:54:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="testJsOnloadErrorPageLoads" classname="TheInternet" time="3.334">
+    <system-err><![CDATA[abr. 29, 2026 2:19:04 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 147
-abr. 29, 2026 12:54:22 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+abr. 29, 2026 2:19:04 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testCheckboxesInitialState" classname="TheInternet" time="2.272">
+    <system-err><![CDATA[abr. 29, 2026 2:19:07 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:07 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testDynamicControlsStartDisabled" classname="TheInternet" time="3.272">
+    <system-err><![CDATA[abr. 29, 2026 2:19:09 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:09 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testExitIntentPageLoads" classname="TheInternet" time="3.322">
+    <system-err><![CDATA[abr. 29, 2026 2:19:12 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:12 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testFileUploadPageLoads" classname="TheInternet" time="1.219">
+    <system-err><![CDATA[abr. 29, 2026 2:19:16 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:16 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testJsAlertsAlertDialog" classname="TheInternet" time="3.397">
+    <system-err><![CDATA[abr. 29, 2026 2:19:17 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:17 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testHoversRevealsUserInfoOnHover" classname="TheInternet" time="1.351">
+    <system-err><![CDATA[abr. 29, 2026 2:19:20 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:20 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testJsAlertsConfirmDismiss" classname="TheInternet" time="3.488">
+    <system-err><![CDATA[abr. 29, 2026 2:19:22 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:22 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testAddAndRemoveElements" classname="TheInternet" time="2.797">
+    <system-err><![CDATA[abr. 29, 2026 2:19:25 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:25 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testEntryAdPageLoads" classname="TheInternet" time="2.288">
+    <system-err><![CDATA[abr. 29, 2026 2:19:28 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:28 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testExitIntentModalAppearsOnMouseExit" classname="TheInternet" time="2.255">
+    <system-err><![CDATA[abr. 29, 2026 2:19:30 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:30 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testDynamicControlsCheckboxCanBeToggled" classname="TheInternet" time="1.348">
+    <system-err><![CDATA[abr. 29, 2026 2:19:33 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:33 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="testFormAuthentication" classname="TheInternet" time="2.377">
+    <system-err><![CDATA[abr. 29, 2026 2:19:34 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 147
+abr. 29, 2026 2:19:34 PM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 147.0.7727.117. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.27.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>

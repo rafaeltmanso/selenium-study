@@ -52,10 +52,22 @@ public class TheInternet {
     private static final By JQUERY_UI_MENUS_TITLE = By.xpath("//h1[normalize-space()='JQuery UI Menus']");
     private static final By JQUERY_UI_MENU_ITEMS = By.cssSelector("ul li");
     private static final By EXIT_INTENT_TITLE = By.xpath("//h1[normalize-space()='Exit Intent']");
-    private static final By SORTABLE_TABLES_TITLE = By.xpath("//h1[normalize-space()='Data Tables']");
+private static final By SORTABLE_TABLES_TITLE = By.xpath("//h1[normalize-space()='Data Tables']");
     private static final By SORTABLE_TABLE = By.cssSelector("table");
     private static final By TABLE_HEADERS = By.cssSelector("table th");
     private static final By TABLE_ROWS = By.cssSelector("table tbody tr");
+    private static final By MULTIPLE_WINDOWS_TITLE = By.xpath("//h1[normalize-space()='Multiple Windows']");
+    private static final By MULTIPLE_WINDOWS_BUTTON = By.cssSelector("main button");
+    private static final By JS_ALERTS_TITLE = By.xpath("//h1[normalize-space()='JavaScript Alerts']");
+    private static final By JS_ALERTS_BUTTONS = By.cssSelector("main button");
+    private static final By ENTRY_AD_TITLE = By.xpath("//h1[normalize-space()='Entry Ad']");
+    private static final By ENTRY_AD_MODAL = By.cssSelector(".fixed.inset-0.bg-black\\/50");
+    private static final By ENTRY_AD_CLOSE_BUTTON = By.cssSelector(".fixed button");
+    private static final By JS_ONLOAD_ERROR_TITLE = By.xpath("//h1[normalize-space()='JavaScript Onload Error']");
+    private static final By FILE_UPLOAD_TITLE = By.xpath("//h1[normalize-space()='File Uploader']");
+    private static final By FILE_UPLOAD_INPUT = By.cssSelector("input[type='file']");
+    private static final By FILE_DOWNLOAD_TITLE = By.xpath("//h1[normalize-space()='File Download']");
+    private static final By FILE_DOWNLOAD_BUTTONS = By.cssSelector("main button");
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -578,6 +590,166 @@ public class TheInternet {
         Assertions.assertTrue(rows.size() > 0, "Table should have rows after clicking header");
     }
 
+    @Test
+    public void testMultipleWindowsPageLoads() {
+        goToMultipleWindowsPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(MULTIPLE_WINDOWS_TITLE));
+        WebElement openLink = wait.until(ExpectedConditions.visibilityOfElementLocated(MULTIPLE_WINDOWS_BUTTON));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "Multiple Windows page title should be visible");
+        Assertions.assertTrue(openLink.isDisplayed(), "Open New Window link should be visible");
+    }
+
+    @Test
+    public void testMultipleWindowsCanOpenNewWindow() {
+        goToMultipleWindowsPage();
+
+        String mainWindow = driver.getWindowHandle();
+        WebElement openLink = wait.until(ExpectedConditions.visibilityOfElementLocated(MULTIPLE_WINDOWS_BUTTON));
+        openLink.click();
+
+        wait.until(d -> driver.getWindowHandles().size() > 1);
+
+        java.util.Set<String> allWindows = driver.getWindowHandles();
+        allWindows.remove(mainWindow);
+        String newWindow = allWindows.iterator().next();
+
+        driver.switchTo().window(newWindow);
+        Assertions.assertNotEquals(mainWindow, driver.getWindowHandle(), "Should be in new window");
+
+        driver.close();
+        driver.switchTo().window(mainWindow);
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(MULTIPLE_WINDOWS_TITLE));
+        Assertions.assertTrue(pageTitle.isDisplayed(), "Should be back in main window");
+    }
+
+    @Test
+    public void testJsAlertsPageLoads() {
+        goToJsAlertsPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(JS_ALERTS_TITLE));
+        java.util.List<WebElement> buttons = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(JS_ALERTS_BUTTONS));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "JavaScript Alerts page title should be visible");
+        Assertions.assertEquals(3, buttons.size(), "Should have 3 alert buttons");
+    }
+
+    @Test
+    public void testJsAlertsAlertDialog() {
+        goToJsAlertsPage();
+
+        java.util.List<WebElement> buttons = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(JS_ALERTS_BUTTONS));
+        buttons.get(0).click();
+
+        org.openqa.selenium.Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        Assertions.assertNotNull(alert, "Alert should be present");
+
+        alert.accept();
+    }
+
+    @Test
+    public void testJsAlertsConfirmDialog() {
+        goToJsAlertsPage();
+
+        java.util.List<WebElement> buttons = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(JS_ALERTS_BUTTONS));
+        buttons.get(1).click();
+
+        org.openqa.selenium.Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        alert.accept();
+    }
+
+    @Test
+    public void testJsAlertsConfirmDismiss() {
+        goToJsAlertsPage();
+
+        java.util.List<WebElement> buttons = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(JS_ALERTS_BUTTONS));
+        buttons.get(1).click();
+
+        org.openqa.selenium.Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        alert.dismiss();
+    }
+
+    @Test
+    public void testJsAlertsPromptDialog() {
+        goToJsAlertsPage();
+
+        java.util.List<WebElement> buttons = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(JS_ALERTS_BUTTONS));
+        buttons.get(2).click();
+
+        org.openqa.selenium.Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+        alert.sendKeys("Test Input");
+        alert.accept();
+    }
+
+    @Test
+    public void testEntryAdPageLoads() {
+        goToEntryAdPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(ENTRY_AD_TITLE));
+        WebElement description = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("main p")));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "Entry Ad page title should be visible");
+        Assertions.assertTrue(description.getText().contains("modal appears after 1 second"),
+                "Description should mention modal appearance");
+    }
+
+    @Test
+    public void testEntryAdModalAppearsAndCanBeClosed() {
+        goToEntryAdPage();
+
+        WebElement modal = wait.until(ExpectedConditions.visibilityOfElementLocated(ENTRY_AD_MODAL));
+        Assertions.assertTrue(modal.isDisplayed(), "Modal should appear after 1 second");
+
+        WebElement closeButton = wait.until(ExpectedConditions.elementToBeClickable(ENTRY_AD_CLOSE_BUTTON));
+        closeButton.click();
+
+        boolean modalDismissed = wait.until(ExpectedConditions.invisibilityOfElementLocated(ENTRY_AD_MODAL));
+        Assertions.assertTrue(modalDismissed, "Modal should be dismissed after clicking Close");
+    }
+
+    @Test
+    public void testJsOnloadErrorPageLoads() {
+        goToJsOnloadErrorPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(JS_ONLOAD_ERROR_TITLE));
+        WebElement description = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("main p")));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "JavaScript Onload Error page title should be visible");
+        Assertions.assertTrue(description.getText().contains("JavaScript error"),
+                "Description should mention JavaScript error");
+    }
+
+    @Test
+    public void testFileUploadPageLoads() {
+        goToFileUploadPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(FILE_UPLOAD_TITLE));
+        WebElement description = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("main p")));
+        WebElement chooseButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("main button")));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "File Upload page title should be visible");
+        Assertions.assertTrue(description.getText().contains("Choose a file"),
+                "Description should mention choosing a file");
+        Assertions.assertEquals("Choose File", chooseButton.getText().trim(),
+                "Choose File button should be present");
+    }
+
+    @Test
+    public void testFileDownloadPageLoads() {
+        goToFileDownloadPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(FILE_DOWNLOAD_TITLE));
+        WebElement description = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("main p")));
+        java.util.List<WebElement> downloadButtons = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(FILE_DOWNLOAD_BUTTONS));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "File Download page title should be visible");
+        Assertions.assertTrue(description.getText().contains("download"),
+                "Description should mention downloading");
+        Assertions.assertEquals(2, downloadButtons.size(), "Should have 2 download buttons");
+    }
+
     private void goToCheckboxesPage() {
         driver.get(BASE_URL + "/examples/checkboxes");
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(CHECKBOX_INPUTS, 1));
@@ -632,6 +804,36 @@ private void goToSortableTablesPage() {
         driver.get(BASE_URL + "/examples/sortable-tables");
         wait.until(ExpectedConditions.visibilityOfElementLocated(SORTABLE_TABLES_TITLE));
         wait.until(ExpectedConditions.visibilityOfElementLocated(SORTABLE_TABLE));
+    }
+
+    private void goToMultipleWindowsPage() {
+        driver.get(BASE_URL + "/examples/multiple-windows");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(MULTIPLE_WINDOWS_TITLE));
+    }
+
+    private void goToJsAlertsPage() {
+        driver.get(BASE_URL + "/examples/js-alerts");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(JS_ALERTS_TITLE));
+    }
+
+    private void goToEntryAdPage() {
+        driver.get(BASE_URL + "/examples/entry-ad");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(ENTRY_AD_TITLE));
+    }
+
+    private void goToJsOnloadErrorPage() {
+        driver.get(BASE_URL + "/examples/js-onload-error");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(JS_ONLOAD_ERROR_TITLE));
+    }
+
+    private void goToFileUploadPage() {
+        driver.get(BASE_URL + "/examples/file-upload");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(FILE_UPLOAD_TITLE));
+    }
+
+    private void goToFileDownloadPage() {
+        driver.get(BASE_URL + "/examples/file-download");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(FILE_DOWNLOAD_TITLE));
     }
 
     private void goToDynamicLoadingPage() {
