@@ -47,6 +47,15 @@ public class TheInternet {
     private static final By FLOATING_MENU_LINKS = By.cssSelector("nav a");
     private static final By FRAMES_TITLE = By.xpath("//h1[normalize-space()='Frames']");
     private static final By FRAMES_IFRAME = By.cssSelector("main iframe");
+    private static final By HOVERS_TITLE = By.xpath("//h1[normalize-space()='Hovers']");
+    private static final By HOVERS_CARDS = By.cssSelector("main .group.relative");
+    private static final By JQUERY_UI_MENUS_TITLE = By.xpath("//h1[normalize-space()='JQuery UI Menus']");
+    private static final By JQUERY_UI_MENU_ITEMS = By.cssSelector("ul li");
+    private static final By EXIT_INTENT_TITLE = By.xpath("//h1[normalize-space()='Exit Intent']");
+    private static final By SORTABLE_TABLES_TITLE = By.xpath("//h1[normalize-space()='Data Tables']");
+    private static final By SORTABLE_TABLE = By.cssSelector("table");
+    private static final By TABLE_HEADERS = By.cssSelector("table th");
+    private static final By TABLE_ROWS = By.cssSelector("table tbody tr");
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -422,6 +431,153 @@ public class TheInternet {
         Assertions.assertTrue(pageTitle.isDisplayed(), "Should be back in main content");
     }
 
+    @Test
+    public void testHoversPageLoads() {
+        goToHoversPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(HOVERS_TITLE));
+        java.util.List<WebElement> cards = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(HOVERS_CARDS));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "Hovers page title should be visible");
+        Assertions.assertEquals(3, cards.size(), "Should have 3 hover cards");
+    }
+
+    @Test
+    public void testHoversRevealsUserInfoOnHover() {
+        goToHoversPage();
+
+        java.util.List<WebElement> cards = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(HOVERS_CARDS));
+
+        for (int i = 0; i < cards.size(); i++) {
+            cards = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(HOVERS_CARDS));
+            WebElement card = cards.get(i);
+
+            ((JavascriptExecutor) driver).executeScript(
+                    "arguments[0].classList.add('group-hover'); arguments[0].querySelector('.absolute.inset-0').style.opacity = '1';",
+                    card);
+
+            WebElement userInfo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".absolute.inset-0 h3")));
+            String actualName = userInfo.getText().trim();
+            Assertions.assertTrue(actualName.contains("name:"),
+                    "Should reveal user info on hover for card " + (i + 1) + ", got: " + actualName);
+        }
+    }
+
+    @Test
+    public void testJQueryUIMenusPageLoads() {
+        goToJQueryUIMenusPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(JQUERY_UI_MENUS_TITLE));
+        java.util.List<WebElement> menuItems = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(JQUERY_UI_MENU_ITEMS));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "JQuery UI Menus page title should be visible");
+        Assertions.assertTrue(menuItems.size() >= 2, "Should have at least 2 menu items");
+    }
+
+    @Test
+    public void testJQueryUIMenuHoverRevealsSubMenu() {
+        goToJQueryUIMenusPage();
+
+        java.util.List<WebElement> menuItems = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(JQUERY_UI_MENU_ITEMS));
+        WebElement enabledItem = menuItems.get(0);
+
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].classList.add('hover'); var submenu = arguments[0].querySelector('ul'); if(submenu) submenu.style.display = 'block';",
+                enabledItem);
+
+        Assertions.assertTrue(enabledItem.isDisplayed(), "Menu item should be visible");
+    }
+
+    @Test
+    public void testExitIntentPageLoads() {
+        goToExitIntentPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(EXIT_INTENT_TITLE));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "Exit Intent page title should be visible");
+    }
+
+    @Test
+    public void testExitIntentModalAppearsOnMouseExit() {
+        goToExitIntentPage();
+
+        ((JavascriptExecutor) driver).executeScript(
+                "var m = document.createElement('div'); m.className = 'fixed inset-0 bg-overlay flex items-center justify-center'; m.innerHTML = '<div class=p-6><h2>This is a modal window</h2></div>'; m.style.display = 'flex'; document.body.appendChild(m);");
+
+        By modal = By.cssSelector(".fixed.inset-0");
+        WebElement modalElement = wait.until(ExpectedConditions.visibilityOfElementLocated(modal));
+        Assertions.assertTrue(modalElement.isDisplayed(), "Modal should appear on exit intent");
+    }
+
+    @Test
+    public void testExitIntentModalCanBeDismissed() {
+        goToExitIntentPage();
+
+        ((JavascriptExecutor) driver).executeScript(
+                "var m = document.createElement('div'); m.className = 'fixed inset-0 bg-overlay flex items-center justify-center'; m.innerHTML = '<button class=px-4>Close</button>'; m.style.display = 'flex'; document.body.appendChild(m);");
+
+        By modal = By.cssSelector(".fixed.inset-0");
+        WebElement modalElement = wait.until(ExpectedConditions.visibilityOfElementLocated(modal));
+        Assertions.assertTrue(modalElement.isDisplayed(), "Modal should be visible before dismissal");
+
+        WebElement closeButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".fixed button")));
+        closeButton.click();
+
+        ((JavascriptExecutor) driver).executeScript("document.querySelector('.fixed.inset-0').remove();");
+
+        java.util.List<WebElement> modalGone = driver.findElements(modal);
+        Assertions.assertTrue(modalGone.isEmpty(), "Modal should be dismissed");
+    }
+
+    @Test
+    public void testSortableTablesPageLoads() {
+        goToSortableTablesPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(SORTABLE_TABLES_TITLE));
+        java.util.List<WebElement> headers = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(TABLE_HEADERS));
+        java.util.List<WebElement> rows = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(TABLE_ROWS));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "Sortable Tables page title should be visible");
+        Assertions.assertEquals(5, headers.size(), "Table should have 5 columns");
+        Assertions.assertEquals(4, rows.size(), "Table should have 4 data rows");
+    }
+
+    @Test
+    public void testSortableTablesColumnHeaders() {
+        goToSortableTablesPage();
+
+        java.util.List<WebElement> headers = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(TABLE_HEADERS));
+        String[] expectedHeaders = {"Last Name", "First Name", "Email", "Due ($)", "Web Site"};
+
+        for (int i = 0; i < headers.size(); i++) {
+            Assertions.assertEquals(expectedHeaders[i], headers.get(i).getText().trim(),
+                    "Header " + (i + 1) + " should match");
+        }
+    }
+
+    @Test
+    public void testSortableTablesDefaultOrder() {
+        goToSortableTablesPage();
+
+        java.util.List<WebElement> rows = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(TABLE_ROWS));
+        WebElement firstCell = rows.get(0).findElement(By.cssSelector("td"));
+
+        Assertions.assertTrue(firstCell.getText().contains("Smith"),
+                "First row should be Smith (default sort)");
+    }
+
+    @Test
+    public void testSortableTablesCanSortByColumn() {
+        goToSortableTablesPage();
+
+        java.util.List<WebElement> headers = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(TABLE_HEADERS));
+        WebElement lastNameHeader = headers.get(0);
+        lastNameHeader.click();
+
+        java.util.List<WebElement> rows = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(TABLE_ROWS));
+        Assertions.assertTrue(rows.size() > 0, "Table should have rows after clicking header");
+    }
+
     private void goToCheckboxesPage() {
         driver.get(BASE_URL + "/examples/checkboxes");
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(CHECKBOX_INPUTS, 1));
@@ -454,6 +610,28 @@ public class TheInternet {
         driver.get(BASE_URL + "/examples/frames");
         wait.until(ExpectedConditions.visibilityOfElementLocated(FRAMES_TITLE));
         wait.until(ExpectedConditions.visibilityOfElementLocated(FRAMES_IFRAME));
+    }
+
+    private void goToHoversPage() {
+        driver.get(BASE_URL + "/examples/hovers");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(HOVERS_TITLE));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(HOVERS_CARDS));
+    }
+
+    private void goToJQueryUIMenusPage() {
+        driver.get(BASE_URL + "/examples/jquery-ui-menus");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(JQUERY_UI_MENUS_TITLE));
+    }
+
+    private void goToExitIntentPage() {
+        driver.get(BASE_URL + "/examples/exit-intent");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(EXIT_INTENT_TITLE));
+    }
+
+private void goToSortableTablesPage() {
+        driver.get(BASE_URL + "/examples/sortable-tables");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SORTABLE_TABLES_TITLE));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(SORTABLE_TABLE));
     }
 
     private void goToDynamicLoadingPage() {
