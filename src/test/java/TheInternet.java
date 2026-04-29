@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -42,12 +43,19 @@ public class TheInternet {
     private static final By DYNAMIC_CONTROLS_TEXT_INPUT = By.id("text-input");
     private static final By DYNAMIC_CONTROLS_CHECKBOX = By.id("checkbox");
     private static final By DYNAMIC_CONTROLS_STATUS = By.cssSelector("div.p-4.rounded-lg.bg-muted\\/50 p");
+    private static final By FLOATING_MENU_TITLE = By.xpath("//h1[normalize-space()='Floating Menu']");
+    private static final By FLOATING_MENU_LINKS = By.cssSelector("nav a");
+    private static final By FRAMES_TITLE = By.xpath("//h1[normalize-space()='Frames']");
+    private static final By FRAMES_IFRAME = By.cssSelector("main iframe");
     private WebDriver driver;
     private WebDriverWait wait;
 
     @BeforeEach
     public void setUp() {
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--window-size=1920,1080");
+        driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.get(BASE_URL);
     }
@@ -337,6 +345,83 @@ public class TheInternet {
         Assertions.assertFalse(checkbox.isSelected(), "Checkbox should be unchecked after clicking again");
     }
 
+    @Test
+    public void testFloatingMenuPageLoads() {
+        goToFloatingMenuPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(FLOATING_MENU_TITLE));
+        java.util.List<WebElement> menuLinks = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(FLOATING_MENU_LINKS));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "Floating Menu page title should be visible");
+        Assertions.assertEquals(5, menuLinks.size(), "Menu should have 5 links");
+    }
+
+    @Test
+    public void testFloatingMenuNavigationClickingEachLink() {
+        goToFloatingMenuPage();
+
+        java.util.List<WebElement> menuLinks = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(FLOATING_MENU_LINKS));
+        String[] expectedHashes = {"#home", "#about", "#contact", "#portfolio", "#gallery"};
+
+        for (int i = 0; i < menuLinks.size(); i++) {
+            WebElement link = menuLinks.get(i);
+
+            if (i > 0) {
+                menuLinks = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(FLOATING_MENU_LINKS));
+                link = menuLinks.get(i);
+            }
+
+            String originalUrl = driver.getCurrentUrl();
+            link.click();
+
+            String currentUrl = driver.getCurrentUrl();
+            Assertions.assertTrue(
+                    currentUrl.contains(expectedHashes[i]) || driver.getCurrentUrl().equals(originalUrl),
+                    "Should navigate to " + expectedHashes[i] + " section");
+        }
+    }
+
+    @Test
+    public void testFloatingMenuStaysVisibleAfterScrolling() {
+        goToFloatingMenuPage();
+
+        WebElement menu = wait.until(ExpectedConditions.visibilityOfElementLocated(FLOATING_MENU_LINKS));
+
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 500)");
+
+        wait.until(d -> menu.isDisplayed());
+
+        Assertions.assertTrue(menu.isDisplayed(), "Floating menu should remain visible after scrolling");
+    }
+
+    @Test
+    public void testFramesPageLoads() {
+        goToFramesPage();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(FRAMES_TITLE));
+        WebElement iframe = wait.until(ExpectedConditions.visibilityOfElementLocated(FRAMES_IFRAME));
+
+        Assertions.assertTrue(pageTitle.isDisplayed(), "Frames page title should be visible");
+        Assertions.assertTrue(iframe.isDisplayed(), "Iframe should be visible");
+    }
+
+    @Test
+    public void testFramesCanSwitchToIframeAndBack() {
+        goToFramesPage();
+
+        WebElement iframe = wait.until(ExpectedConditions.visibilityOfElementLocated(FRAMES_IFRAME));
+        driver.switchTo().frame(iframe);
+
+        WebElement iframeContent = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("h1")));
+        Assertions.assertEquals("Inside Iframe", iframeContent.getText().trim(),
+                "Should be inside iframe and see 'Inside Iframe' heading");
+
+        driver.switchTo().defaultContent();
+
+        WebElement pageTitle = wait.until(ExpectedConditions.visibilityOfElementLocated(FRAMES_TITLE));
+        Assertions.assertTrue(pageTitle.isDisplayed(), "Should be back in main content");
+    }
+
     private void goToCheckboxesPage() {
         driver.get(BASE_URL + "/examples/checkboxes");
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(CHECKBOX_INPUTS, 1));
@@ -357,6 +442,18 @@ public class TheInternet {
         driver.get(BASE_URL + "/examples/context-menu");
         wait.until(ExpectedConditions.visibilityOfElementLocated(CONTEXT_MENU_TITLE));
         wait.until(ExpectedConditions.visibilityOfElementLocated(CONTEXT_MENU_BOX));
+    }
+
+    private void goToFloatingMenuPage() {
+        driver.get(BASE_URL + "/examples/floating-menu");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(FLOATING_MENU_TITLE));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(FLOATING_MENU_LINKS));
+    }
+
+    private void goToFramesPage() {
+        driver.get(BASE_URL + "/examples/frames");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(FRAMES_TITLE));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(FRAMES_IFRAME));
     }
 
     private void goToDynamicLoadingPage() {
